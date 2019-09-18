@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
+from __future__ import print_function  #这个函数的作用是，即使我是py2的环境，依然可以用py3的用法
 
 import os
 import sys
 import time
-from datetime import timedelta
+from datetime import timedelta         #作用是显示时间还可以进行时间相减
 
 import numpy as np
 import tensorflow as tf
