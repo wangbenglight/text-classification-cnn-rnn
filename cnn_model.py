@@ -9,8 +9,8 @@ class TCNNConfig(object):
     embedding_dim = 64  # 词向量维度
     seq_length = 600  # 序列长度
     num_classes = 10  # 类别数
-    num_filters = 256  # 卷积核数目
-    kernel_size = 5  # 卷积核尺寸
+    num_filters = 256  # 卷积核数目    
+    kernel_size = 5  # 卷积核尺寸       #在卷积中，列的维度和词向量维度一样，所以这里的是 5X64的卷积核
     vocab_size = 5000  # 词汇表达小
 
     hidden_dim = 128  # 全连接层神经元
@@ -29,14 +29,14 @@ class TextCNN(object):
     """文本分类，CNN模型"""
 
     def __init__(self, config):
-        self.config = config
+        self.config = config            #接收一个TCNNConfig类的实例变量
 
         # 三个待输入的数据
         self.input_x = tf.placeholder(tf.int32, [None, self.config.seq_length], name='input_x')
         self.input_y = tf.placeholder(tf.float32, [None, self.config.num_classes], name='input_y')
         self.keep_prob = tf.placeholder(tf.float32, name='keep_prob')
 
-        self.cnn()
+        self.cnn()                     #每一次执行一次类的实例化都会执行_init_方法。
 
     def cnn(self):
         """CNN模型"""
